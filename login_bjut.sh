@@ -8,13 +8,18 @@ DDDDD3=
 upass3=
 
 # 0 ipv4&ipv6 1 ipv4 2 ipv6
-v46s=2
+v46s=0
 
-if [ "$v46s" == 0 ]; then
-    content=$(curl -s 'https://lgn6.bjut.edu.cn/' --data 'DDDDD='${DDDDD}'&upass='${upass}'&v46s='${v46s}'&v6ip=&f4serip=172.30.201.2&0MKKey=')
+if [ "$v46s" == 2 ]; then
+    lgn=https://lgn6.bjut.edu.cn/
 else
-    content=$(curl -s 'https://lgn.bjut.edu.cn/' --data 'DDDDD='${DDDDD}'&upass='${upass}'&v46s='${v46s}'&v6ip=&f4serip=172.30.201.2&0MKKey=')
+    lgn=https://lgn.bjut.edu.cn/
 fi
+
+#curl ${lgn}
+
+#content=$(curl -s 'https://lgn6.bjut.edu.cn/' --data 'DDDDD='${DDDDD}'&upass='${upass}'&v46s='${v46s}'&v6ip=&f4serip=172.30.201.2&0MKKey=')
+content=$(curl -s ${lgn} --data 'DDDDD='${DDDDD}'&upass='${upass}'&v46s='${v46s}'&v6ip=&f4serip=172.30.201.2&0MKKey=')
 
 #echo "${content}"
 
@@ -27,7 +32,7 @@ else
     echo "first login fail"
     echo ${msg}
     echo ${gno}
-    content2=$(curl -s 'https://lgn.bjut.edu.cn/' --data 'DDDDD='${DDDDD2}'&upass='${upass2}'&v46s=1&v6ip=&f4serip=172.30.201.2&0MKKey=')
+    content2=$(curl -s ${lgn} --data 'DDDDD='${DDDDD2}'&upass='${upass2}'&v46s='${v46s}'&v6ip=&f4serip=172.30.201.2&0MKKey=')
     msg2=$(echo "$content2"|grep -o '^Msg=[0-9][0-9]')
     gno2=$(echo "$content2"|grep -o '^Gno=[0-9][0-9]')
 
@@ -37,7 +42,7 @@ else
         echo ${msg2}
         echo ${gno2}
         echo "login_fail"
-        content3=$(curl -s 'https://lgn.bjut.edu.cn/' --data 'DDDDD='${DDDDD3}'&upass='${upass3}'&v46s=1&v6ip=&f4serip=172.30.201.2&0MKKey=')
+        content3=$(curl -s ${lgn} --data 'DDDDD='${DDDDD3}'&upass='${upass3}'&v46s='${v46s}'&v6ip=&f4serip=172.30.201.2&0MKKey=')
         msg3=$(echo "$content3"|grep -o '^Msg=[0-9][0-9]')
         gno3=$(echo "$content3"|grep -o '^Gno=[0-9][0-9]')
         if [ "$gno3" == "Gno=01" ]; then
