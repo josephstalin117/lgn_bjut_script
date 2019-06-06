@@ -1,13 +1,20 @@
 #!/bin/sh
 
-DDDDD=account1
-upass=password1
-DDDDD2=account2
-upass2=password2
-DDDDD3=account3
-upass3=password3
+DDDDD=
+upass=
+DDDDD2=
+upass2=
+DDDDD3=
+upass3=
 
-content=$(curl -s 'https://lgn.bjut.edu.cn/' --data 'DDDDD='${DDDDD}'&upass='${upass}'&v46s=1&v6ip=&f4serip=172.30.201.2&0MKKey=')
+# 0 ipv4&ipv6 1 ipv4 2 ipv6
+v46s=2
+
+if [ "$v46s" == 0 ]; then
+    content=$(curl -s 'https://lgn6.bjut.edu.cn/' --data 'DDDDD='${DDDDD}'&upass='${upass}'&v46s='${v46s}'&v6ip=&f4serip=172.30.201.2&0MKKey=')
+else
+    content=$(curl -s 'https://lgn.bjut.edu.cn/' --data 'DDDDD='${DDDDD}'&upass='${upass}'&v46s='${v46s}'&v6ip=&f4serip=172.30.201.2&0MKKey=')
+fi
 
 #echo "${content}"
 
