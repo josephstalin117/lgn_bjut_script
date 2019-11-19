@@ -17,10 +17,11 @@ elif [ "$1" == 4 ]; then
     echo "ipv4"
     v46s=1
 else
-    if [ ${v46s} == 2]; then
+    if [ ${v46s} == 2 ]; then
         echo "ipv6"
     else
         echo "ipv4"
+    fi
 fi
 
 if [ "$v46s" == 2 ]; then
