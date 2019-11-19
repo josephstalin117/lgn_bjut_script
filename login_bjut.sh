@@ -1,7 +1,7 @@
 #!/bin/sh
 
-DDDDD=
-upass=
+DDDDD=S201761811
+upass=2356002
 DDDDD2=
 upass2=
 DDDDD3=
@@ -9,6 +9,15 @@ upass3=
 
 # 0 ipv4&ipv6 1 ipv4 2 ipv6
 v46s=0
+
+if [ "$1" == 6 ]; then
+    v46s=2
+else
+    v46s=1
+fi
+
+echo ${v46s}
+echo $1
 
 if [ "$v46s" == 2 ]; then
     lgn=https://lgn6.bjut.edu.cn/
