@@ -1,7 +1,7 @@
 #!/bin/sh
 
-DDDDD=S201761811
-upass=2356002
+DDDDD=
+upass=
 DDDDD2=
 upass2=
 DDDDD3=
