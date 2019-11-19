@@ -11,13 +11,17 @@ upass3=
 v46s=0
 
 if [ "$1" == 6 ]; then
+    echo "ipv6"
     v46s=2
-else
+elif [ "$1" == 4 ]; then
+    echo "ipv4"
     v46s=1
+else
+    if [ ${v46s} == 2]; then
+        echo "ipv6"
+    else
+        echo "ipv4"
 fi
-
-echo ${v46s}
-echo $1
 
 if [ "$v46s" == 2 ]; then
     lgn=https://lgn6.bjut.edu.cn/
